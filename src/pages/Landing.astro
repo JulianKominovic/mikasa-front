@@ -3,7 +3,17 @@ import BlurCard from "../components/BlurCard.astro";
 import DateTime from "../components/DateTime"
 import DolarPrice from "../containers/Landing/DolarPrice.astro";
 
+
 const dolarPrice = await fetch("https://api-dolar-argentina.herokuapp.com/api/dolarblue").then(res => res.json()).catch(err => console.log(err))
+
+// const API_BASE_URL = "http://api.weatherapi.com/v1/forecast.json"
+
+// const { location, current, forecast } = await fetch(API_BASE_URL + `?q=auto:ip&key=${import.meta.env.WEATHER_API_KEY}&days=3&lang=es`).then(res => res.json()).catch(err => console.log(err))
+
+// const { name, localtime } = location
+// const { temp_c, feelslike_c, condition } = current
+// const { text, icon } = condition
+
 ---
 
 <style>
@@ -68,6 +78,7 @@ const dolarPrice = await fetch("https://api-dolar-argentina.herokuapp.com/api/do
         <BlurCard>
             <DolarPrice {...dolarPrice} />
         </BlurCard>
+
 
 
 
