@@ -1,0 +1,30 @@
+---
+
+---
+
+<style>
+    article {
+        padding: 16px;
+        background-color: rgba(255, 255, 255, .2);
+        border-radius: 12px;
+        min-width: 200px;
+        min-height: 200px;
+        max-height: 300px;
+        backdrop-filter: blur(10px);
+        width: 100%;
+        max-width: 268px;
+    }
+
+    @media (max-width:460px) {
+        article {
+            width: 100%;
+            max-width: 100%;
+
+        }
+    }
+</style>
+
+
+<article>
+    <slot />
+</article>

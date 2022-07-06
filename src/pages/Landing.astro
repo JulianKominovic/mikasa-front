@@ -1,0 +1,89 @@
+---
+import BlurCard from "../components/BlurCard.astro";
+import DateTime from "../components/DateTime"
+import DolarPrice from "../containers/Landing/DolarPrice.astro";
+
+const dolarPrice = await fetch("https://api-dolar-argentina.herokuapp.com/api/dolarblue").then(res => res.json()).catch(err => console.log(err))
+---
+
+<style>
+    main {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        display: flex;
+        gap: 30px;
+        padding: 20px;
+        overflow-x: hidden;
+
+    }
+
+    @media (max-width:460px) {
+        main {
+            flex-direction: column;
+        }
+    }
+
+    .left {
+        width: 100%;
+
+        gap: 12px;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+    .left :global(article) {
+        min-height: unset;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    @media (max-width:460px) {
+        .left {
+            max-width: 100%;
+        }
+    }
+
+    .right {
+        width: 100%;
+        align-items: baseline;
+        gap: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+
+    }
+</style>
+
+<main>
+
+    <section class="left">
+        <BlurCard>
+            <DateTime client:visible />
+        </BlurCard>
+        <BlurCard>
+            <DolarPrice {...dolarPrice} />
+        </BlurCard>
+
+
+
+    </section>
+    <section class="right">
+        {
+        Array.from({length:10}).map((item,index)=> <BlurCard>
+            <div>
+                <h4>App { index}</h4>
+                <p>App {index} en consstruccion...</p>
+            </div>
+        </BlurCard>)
+        }
+
+
+
+    </section>
+
+</main>

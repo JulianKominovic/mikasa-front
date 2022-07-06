@@ -1,0 +1,41 @@
+---
+
+const { venta, compra, fecha } = Astro.props
+---
+
+<style>
+    h2 {
+        margin-bottom: 10px;
+
+    }
+
+    h4 {
+        font-size: 28px;
+    }
+
+    h5 {
+        font-weight: 400;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    small {
+
+        font-weight: 300;
+        font-size: 22px;
+    }
+</style>
+
+<div>
+    <h2>💸
+        Dolar Blue</h2>
+    <h4>
+        VENTA: ${venta}
+    </h4>
+    <h5>
+        COMPRA: ${compra}
+    </h5>
+    <small>
+        Fecha de actualizacion: {fecha}
+    </small>
+</div>
